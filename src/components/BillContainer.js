@@ -6,12 +6,12 @@ const labelWrapper = "label-wrapper flex flex-col md:flex-row justify-between px
 const inpText = "inp-text py-2 w-full border-2 border-white focus:border-cyan-500 rounded-lg placeholder-blueGray-500 placeholder-opacity-75 h-auto text-2xl text-right px-4 font-semibold bg-blueGray-100 focus:outline-none";
 const inputWrapper = "input-wrapper flex flex-row items-center relative"
 const iconImage = "absolute left-4 top-4";
-const btn = "text-center text-cyan-50 bg-cyan-900 text-2xl font-bold rounded py-2 pr-0 active:bg-teal-400 active:text-cyan-900 w-4/6 ";
+const btn = "text-center text-cyan-50 bg-cyan-900 text-2xl font-bold rounded py-2 pr-0 active:bg-teal-400 active:text-cyan-900 w-4/6 cursor-pointer hover:bg-teal-200 hover:text-cyan-900";
 
 
 
 
-const BillContainer = ({ input, onInputChange }) => {
+const BillContainer = ({inputBillHandler}) => {
 
     return (
         <div className={inputBorder}>
@@ -20,8 +20,7 @@ const BillContainer = ({ input, onInputChange }) => {
                     <label className="text-lg font-semibold" htmlFor="inp-bill"> Bill </label>
                 </div>
                 <div className={inputWrapper}>
-                    <input className={inpText} type="text" name="inp-bill" id="inp-bill" placeholder="0.0" 
-                        onChange={(event) => { onInputChange(event.target.value) }} />
+                    <input className={inpText} type="text" name="inp-bill" id="inp-bill" placeholder="0.0" onChange={inputBillHandler} />
                     <img className={iconImage} src="images/icon-dollar.svg" alt="dollar" />
                 </div>
             </div>

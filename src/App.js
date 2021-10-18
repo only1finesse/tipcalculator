@@ -1,11 +1,20 @@
 import React from "react";
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import BillContainer from "./components/BillContainer";
 import OutputContainer from "./components/OutputContainer";
 
 
 const App = () => {
-  let [query, setQuery] = useState("");
+  const [inputBill, setInputBill] = useState('0.0');
+  const [tip, setTip] = useState("")
+
+  const inputBillHandler = (event) => {
+    console.log(event.target.value);
+    setInputBill(event.target.value)
+    // let bill = event.target.value
+    // setInputBill(inputBill)
+  }
+
   return (
     // <body className="font-spaceMono text-base">
     //   <div className="min-h-screen bg-cyan-100 flex flex-col justify-start sm:py-6 items-center">
@@ -24,19 +33,18 @@ const App = () => {
     //   </div>
     // </div>
     // </body>
-    <body className="font-spaceMono text-base text-cyan-800">
+    <div className="font-spaceMono text-base text-cyan-800">
       <div className="min-h-screen bg-cyan-100 flex flex-col items-center justify-start">
-        <div className="logo my-11 md:my-20 md:pt-1">
+        <div className="logo my-11 md:my-20 md:pt-1" >
           <img src="images/logo.svg" alt="splitter logo" />
+          {inputBill}
         </div>
         <div className="card bg-white px-4 py-8 flex flex-col md:flex-row items-center md:items-start justify-start  gap-4 w-full md:w-4/5 rounded-2xl h-screen md:h-auto md:items-stretch">
-          <BillContainer 
-          query = {query}
-            onInputChange={myQuery => setQuery(myQuery)} />
-          <OutputContainer />
+          <BillContainer inputBillHandler={inputBillHandler} />
+          <OutputContainer inputBill={inputBill} setTip={setTip} />
         </div>
       </div>
-    </body>
+    </div>
   )
 }
 
