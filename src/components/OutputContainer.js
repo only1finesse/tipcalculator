@@ -20,7 +20,7 @@ const OutputContainer = ({inputBill}) => {;
                         <div className={`${title}`}> Tip Amount </div>
                         <div className={`${desc}`}>/ person </div>
                     </div>
-                    <div className={`${value}`}>${inputBill}</div>
+                    <div className={`${value}`}>${inputBill===''?'0.0':inputBill}</div>
                 </div>
                 <div className={`${lineOutput}`}>
                     <div className="title-wrapper">
